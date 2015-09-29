@@ -17,10 +17,8 @@
 searchC =  arcpy.da.SearchCursor("DECC_OFF_Hydrocarbon_Fields", ("FIELDNAME","CURRENTLIC","SHAPE@")) #plus other attribute if you need
 insertC = arcpy.da.InsertCursor("NewFeatureClass", ("FIELDNAME","CURRENTLIC","SHAPE@")) 
 for row in searchC:
-     A = row[1].split(",")
-     print A
-     if len(A)> 3:
-         for i in range(0,len(A)):
-             newRow = [row[0] , A[i], row[2]]
-             insertC.insertRow(newRow)
-del insertC
+    A = row[1].split(",")
+    print A
+    for i in range(0,len(A)):
+        newRow = [row[0] , A[i], row[2]]
+        insertC.insertRow(newRow)
