@@ -27,3 +27,4 @@ for u in uli:
          if n[0] == u.name:
              u.SEQ = n[1]
              break
+    uli.updaterow(u)
