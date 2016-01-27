@@ -18,6 +18,7 @@ def SendEmail(text, subject, to, attachment):
         if os.path.isfile(attachment):
             fp = open(attachment, 'rb')
             att = MIMEBase("application","pdf")
+            ## FOR UKNOWN FILETYPES USE: att = MIMEBase("application","octet-stream")
             att.set_payload(fp.read())
             fp.close()
             # Encode the payload using Base64
