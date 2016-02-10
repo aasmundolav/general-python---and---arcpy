@@ -1,4 +1,4 @@
-array = [[r"D:\MarinfWebkart2\CableTemplate.lyr","Cables"], [r"D:\MarinfWebkart2\CableTemplate.lyr","Pipelines"], [r"D:\MarinfWebkart2\InstallationTemplate.lyr","Installations"]]
+array = [[r"D:\MarinfWebkart2\CableTemplate.lyr","Cables"], [r"D:\MarinfWebkart2\PipelineTemplate.lyr","Pipelines"], [r"D:\MarinfWebkart2\InstallationTemplate.lyr","Installations"]]
 
 for a in array:
     DQandSCALEarray = []
