@@ -1,9 +1,9 @@
 import time
 def date2epoch(i):
     if len(i) > 12:
-        e = time.strptime(input, "%d.%m.%Y %H.%M.%S")
+        e = time.strptime(i, "%d.%m.%Y %H.%M.%S")
     if len(i) < 12:
-        e = time.strptime(input, "%d.%m.%Y")
+        e = time.strptime(i, "%d.%m.%Y")
     return time.mktime(e)
 
 def epoch2date(i):
