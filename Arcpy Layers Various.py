@@ -1,15 +1,18 @@
 # Replace text in layer names
-
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
 layers=arcpy.mapping.ListLayers(mxd, "*", df)
 replace = "Ana_EarthByte"
+replacements = [["Ana_EarthByte", ""],["118Ma", ""], ["_"," "], ["  ", " "]]
 
-for l in layers:
-    print l.name
-    if replacetext in l.name:
-        print l.name
-        l.name = l.name.replace(replacetext,"")
+
+for r in replacements:
+    for l in layers:
+        #print l.name
+        if r[0] in l.name:
+            print l.name
+            l.name = l.name.replace(r[0],r[1])
+        
         
 #---------------------------------
 mxd = arcpy.mapping.MapDocument("CURRENT")
