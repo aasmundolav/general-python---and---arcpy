@@ -1,3 +1,15 @@
+# Replace text in layer names
+mxd = arcpy.mapping.MapDocument("CURRENT")
+df = mxd.activeDataFrame
+layers=arcpy.mapping.ListLayers(mxd, "*", df)
+replace = "Ana_EarthByte"
+
+for l in layers:
+    print l.name
+    if replacetext in l.name:
+        print l.name
+
+#---------------------------------
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
 layers=arcpy.mapping.ListLayers(mxd, "Pipeline Labels", df)
@@ -5,7 +17,7 @@ layers=arcpy.mapping.ListLayers(mxd, "Pipeline Labels", df)
 for l in layers:
     for x in l.labelClasses:
         print x.definitonQuery
----------------
+#---------------
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
@@ -16,7 +28,7 @@ for l in layers:
         x.SQLQuery = a[count]
         count+=1
 
--------------------
+#-------------------
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
@@ -32,7 +44,7 @@ for l in layers:
                 finfo.setVisible(x,"HIDDEN") 
         arcpy.MakeFeatureLayer_management(l,"New_Installations","1=1",r"d:\MarinfWebkart2\MarinInf_1.gdb\MarinInf_1.gdb",finfo)
         
---------------
+#--------------
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
