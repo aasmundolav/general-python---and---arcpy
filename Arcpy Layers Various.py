@@ -1,4 +1,5 @@
 # Replace text in layer names
+
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
 layers=arcpy.mapping.ListLayers(mxd, "*", df)
@@ -8,7 +9,8 @@ for l in layers:
     print l.name
     if replacetext in l.name:
         print l.name
-
+        l.name = l.name.replace(replacetext,"")
+        
 #---------------------------------
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
