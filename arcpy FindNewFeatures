@@ -1,0 +1,8 @@
+import arcpy
+
+featureClasses =
+
+
+for f in featureClasses
+now = time.today()
+arcpy.SearchCursor()
