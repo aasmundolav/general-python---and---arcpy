@@ -15,6 +15,7 @@ for r in replacements:
         
         
 #---------------------------------
+# FIND DEFINITION QUERIES
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
 layers=arcpy.mapping.ListLayers(mxd, "Pipeline Labels", df)
@@ -22,7 +23,22 @@ layers=arcpy.mapping.ListLayers(mxd, "Pipeline Labels", df)
 for l in layers:
     for x in l.labelClasses:
         print x.definitonQuery
+
+
+#--------------------------
+# REPLACE DATASOURCES FOR ALL FEATURE LAYERS
+mxd = arcpy.mapping.MapDocument("CURRENT")
+df = mxd.activeDataFrame
+layers=arcpy.mapping.ListLayers(mxd, "*", df)
+
+for l in layers:
+    if l.isFeatureLayer:
+        if l.dataSource == r"G:\EXP\NO_Worldwide\Global_Basin_Screening\Geoscience_Projects\_Global\2014_Southern_Ocean_Margins\GIS\Data\ArchivingSOMAResults\SouthernOceanMargins\data\ide_int_db.gdb\SOMA_DepoCenters":
+		print l.name
+		l.replaceDataSource (r"Database Connections\INT_PROD_OSAuth.sde", "SDE_WORKSPACE", "SOMA_GeoSource_DepoCenters")      
+        
 #---------------
+#FIND LABEL QUERYIES
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
@@ -34,6 +50,7 @@ for l in layers:
         count+=1
 
 #-------------------
+# SHOW ATTRIBUTE IN FEATURE LAYERs
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
@@ -50,6 +67,8 @@ for l in layers:
         arcpy.MakeFeatureLayer_management(l,"New_Installations","1=1",r"d:\MarinfWebkart2\MarinInf_1.gdb\MarinInf_1.gdb",finfo)
         
 #--------------
+# GET ATTRIBUTES THAT ARE VISIBLE FOR ALL LAYERS
+
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
