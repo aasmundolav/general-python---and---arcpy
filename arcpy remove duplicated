@@ -1,0 +1,8 @@
+f =arcpy.UpdateCursor("USFields")
+fields = []
+for f1 in f:
+     if not f1.FIELD_NAME in fields:
+         fields.append(f1.FIELD_NAME)
+         f1.FLD_ALIAS = "1"
+         f.updateRow(f1)
+         
