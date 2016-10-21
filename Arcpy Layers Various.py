@@ -1,3 +1,9 @@
+## Get all file paths
+
+layers=arcpy.mapping.ListLayers(arcpy.mapping.MapDocument("CURRENT"), "*", arcpy.mapping.MapDocument("CURRENT").activeDataFrame)
+for l in layers:
+	print l.name, l.dataSource
+
 # Replace text in layer names
 mxd = arcpy.mapping.MapDocument("CURRENT")
 df = mxd.activeDataFrame
@@ -84,5 +90,5 @@ for l in layers:
                 a.append(finfo.getFieldName(x))                
         break
 
------------
+##-----------
     
