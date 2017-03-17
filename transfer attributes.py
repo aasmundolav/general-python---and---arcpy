@@ -4,6 +4,6 @@ with arcpy.da.UpdateCursor('TEST', ['SHAPE@', 'SURVEY_ID_REF']) as cursor:
         for g in iGeometry:
             if g[1] == row[1]:
                 print "match %s" % g[1]
-                row[0] == g[0]
+                row[0] = g[0]
                 break
         cursor.updateRow(row)
