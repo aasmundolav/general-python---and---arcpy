@@ -1,5 +1,18 @@
 import arcpy, os.path
 
+## FIND GDBs IN FOLDER:
+## findfolders( r"G:\T&P\ANT\MBM\NKG\Mapdata\GIS_data\GeotechincalPoints\gt_ssdm_delivery_2018",".gdb")
+def findFolders(folder,ending)
+    workspaces = []
+    for path, dirs, files in os.walk(folder):
+        for d in dirs:
+            if d.endswith(ending):
+                workspaces.append(os.path.join(path,d))
+                print d
+    return workspaces
+
+
+
 arcpy.env.workspace = r"c:\Users\aoek\AppData\Roaming\Rothwell\PaleoGIS\Scratch"
 workspaces = arcpy.ListWorkspaces("*", "FileGDB")
 
