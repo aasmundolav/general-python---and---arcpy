@@ -1,5 +1,12 @@
 mxd = arcpy.mapping.MapDocument("CURRENT")
 for l in arcpy.mapping.ListLayers(mxd,"*",mxd.activeDataFrame):
+	l.findAndReplaceWorkspacePath("",r"\\ws630\Projects\_databaseconnections\GIS_GIT.sde")
+
+
+
+
+mxd = arcpy.mapping.MapDocument("CURRENT")
+for l in arcpy.mapping.ListLayers(mxd,"*",mxd.activeDataFrame):
 	print l.datasetName
 	print l.name
 	
