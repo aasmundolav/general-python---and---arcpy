@@ -1,4 +1,18 @@
-fc = arcpy.UpdateCursor("EuropipeSegments_Update")
+
+## please use a copy of grid ##
+
+polygonGrid = '"c:\\"
+arcpy.descibe(polygonGrid)
+## Print number of selected features.
+
+layers=
+
+## Print number of layers. Print layer names.
+for l in layers:
+    if 
+
+
+fc = arcpy.UpdateCursor(c)
 count = 0
 for f in fc:
     if f.OBJECTID < 370:
