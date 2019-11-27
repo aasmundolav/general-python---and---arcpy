@@ -1,3 +1,21 @@
+## TRIAL TEST THAT WORKED IN PYTHON INSIDE ARCMAP:
+
+t='tracks'
+c='fishnet'
+
+fc = arcpy.UpdateCursor(c)
+count = 0
+for f in fc:
+    arcpy.SelectLayerByAttribute_management(c,"NEW_SELECTION", '"OID" = %s' % f.OID)
+    arcpy.SelectLayerByLocation_management(t, "INTERSECT", c,"","NEW_SELECTION")
+    result = arcpy.GetCount_management(t).getOutput(0)
+    count+=1
+    print "%s number of intersections: %s" % (count, result)
+    f.CountAll_2018 = result
+    fc.updateRow(f)
+    
+    
+
 
 ## please use a copy of grid ##
 
