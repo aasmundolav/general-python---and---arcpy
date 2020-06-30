@@ -1,8 +1,9 @@
 ## Get all file paths
 
-layers=arcpy.mapping.ListLayers(arcpy.mapping.MapDocument("CURRENT"), "*", arcpy.mapping.MapDocument("CURRENT").activeDataFrame)
-for l in layers: 
-	if not l.isGroupLayer: print "%s;%s;%s" % (l.name, l.dataSource, l.definitionQuery)
+for l in arcpy.mapping.ListLayers(arcpy.mapping.MapDocument("CURRENT"), "*", arcpy.mapping.MapDocument("CURRENT").activeDataFrame):
+	try:
+            if not l.isGroupLayer: print "%s;%s" % (l.name, l.dataSource)
+	except Exception as e: print "%s;%s" % (l.name, e)
 
 # Replace text in layer names
 mxd = arcpy.mapping.MapDocument("CURRENT")
