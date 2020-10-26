@@ -30,3 +30,23 @@ with arcpy.da.UpdateCursor(fc, ['SHAPE@']) as cursor:
                  new = arcpy.Polyline(newGeom)
                  row[0] = new
                  cursor.updateRow(row)     
+
+		
+with arcpy.da.UpdateCursor(fc, ['SHAPE@', 'Contour', 'SHAPE@Z']) as cursor:
+	 count = 0
+	 for row in cursor:
+		 print row[1]
+		 print row[2]
+		 newGeom = arcpy.Array()
+		 for part in row[0]:
+			 newPart = arcpy.Array()
+			 for pnt in part:
+				 pnt.Z = row[1]
+				 count +=1
+				 if count == 1:
+					print pnt.Z
+				 newPart.add(pnt)
+                         newGeom.add(newPart)
+                 new = arcpy.Polyline(newGeom, None ,True)
+                 row[0] = new
+                 cursor.updateRow(row)
