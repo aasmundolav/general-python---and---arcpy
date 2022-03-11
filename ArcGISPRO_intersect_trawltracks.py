@@ -3,6 +3,7 @@ m = p.listMaps()[0]
 l = m.listLayers()[0]
 
 cursor = arcpy.SearchCursor('pipelines')
+count=0
 for c in cursor:
     count +=1
     print(count)
