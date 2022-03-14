@@ -8,7 +8,7 @@ for c in cursor:
     count +=1
     print(count)
     print(c.NAME)
-    arcpy.management.SelectLayerByAttribute('pipelines', 'NEW_SELECTION',"NAME = '{0}'".format(c.NAME))
+    arcpy.management.SelectLayerByAttribute('pipelines', 'NEW_SELECTION',"OBJECTID_1 = '{0}'".format(c.OBJECTID_1))
     print("%s pipeline feature selected" % arcpy.GetCount_management('pipelines'))
     arcpy.management.SelectLayerByLocation('tracks', 'INTERSECT', 'pipelines')
     print("%s track features selected" % arcpy.GetCount_management('tracks'))
