@@ -1,3 +1,9 @@
+#'pipeline' is name of layer with pipeline with KP values
+#'tracks' is name of layer with all line tracks that crosses (KP value not required)
+
+outputFGB=r"D:\Fish_DNVGL\Pipelines.gdb"
+
+
 p = arcpy.mp.ArcGISProject("CURRENT")
 m = p.listMaps()[0]
 l = m.listLayers()[0]
