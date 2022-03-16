@@ -1,4 +1,4 @@
-field = "AGE_BASE_NAME"
+field = "NAME"
 mxd = arcpy.mapping.MapDocument("Current")
 df = arcpy.mapping.ListDataFrames(mxd)[0]
 layer = 'Source Rocks, SOMA'
