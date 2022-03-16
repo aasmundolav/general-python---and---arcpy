@@ -13,4 +13,4 @@ for c in cursor:
  		CL.name = "%s" % c.getValue(field)
  		CL.definitionQuery = "%s = '%s'" % (field,c.getValue(field))
  		arcpy.mapping.AddLayer(df,CL,"TOP")
-   arcpy.CopyFeatures_management(CL, r"\\ws630\Projects\PROJECT_SERVICES\UtsiraNord\Data\singleshapes2\%s.shp")
+   arcpy.CopyFeatures_management(CL, r"\\ws630\Projects\PROJECT_SERVICES\UtsiraNord\Data\singleshapes2\%s.shp" % c.getValue(field))
