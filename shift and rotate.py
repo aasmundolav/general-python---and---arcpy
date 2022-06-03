@@ -1,3 +1,6 @@
+
+c = [0,1],[2,3]
+
 def RotateXYandShift(x, y, dx, dy, angle):  
     """Rotate an xy cooordinate about a specified origin  
   
@@ -17,10 +20,9 @@ def RotateXYandShift(x, y, dx, dy, angle):
 
 count = 0
 
-coordinates = [0,1,2,3,4,5,6,7,8,9,10,11]
-
-for x in coordinates:
-	output = r"D:\test\HT%s.shp" % x
+for x in c:
+	count+=1
+	output = r"D:\test\HT2%s.shp" % count
 	arcpy.CopyFeatures_management('A',output)
 	with arcpy.da.UpdateCursor(output, ['SHAPE@']) as cursor:
 	 for row in cursor:
@@ -28,7 +30,7 @@ for x in coordinates:
 		 for part in row[0]:
 			 newPart = arcpy.Array()
 			 for pnt in part:
-                                 newcoord = RotateXYandShift(pnt.X, pnt.Y, x*100, x*200,x*30)
+                                 newcoord = RotateXYandShift(pnt.X, pnt.Y, c[0],c[1],29)
 				 newPnt = arcpy.Point(newcoord[0], newcoord[1])
 				 count +=1
 				 newPart.add(newPnt)
