@@ -20,8 +20,8 @@ for l in arcpy.mapping.ListLayers(mxd,"*",mxd.activeDataFrame):
 
 mxd = arcpy.mapping.MapDocument("CURRENT")
 for l in arcpy.mapping.ListLayers(mxd,"*",mxd.activeDataFrame):
-	if "ED50" in l.datasetName:
-		l.replaceDataSource(l.workspacePath, "SDE_WORKSPACE", l.datasetName.replace("ED50_","WGS84_"), False)
+	if l.isFeatureLayer:
+		l.replaceDataSource(r"\\ws630\Projects\PROJECT_SERVICES\TrollWind\data\layout\LayoutJan2023.gdb", "FILEGDB_WORKSPACE")
 		print l.datasetName
 
 
