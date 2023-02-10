@@ -1,6 +1,6 @@
 def FindLabel ( [OBJECTID] ):
   mxd = arcpy.mapping.MapDocument("CURRENT")
-  layers=arcpy.mapping.ListLayers(mxd, "test")
+  layers=arcpy.mapping.ListLayers(mxd, "Installations")
   lr=layers[0]
   with arcpy.da.SearchCursor(lr, 'Shape@','OBJECTID = '+str( [OBJECTID] )) as cursor:
       for row in cursor:
